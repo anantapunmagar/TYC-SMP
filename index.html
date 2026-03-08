@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYC SMP | Survival Multiplayer</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #4ade80; /* Minecraft Green */
+            --primary-hover: #22c55e;
+            --bg-dark: #111827;
+            --bg-card: #1f2937;
+            --text-light: #f3f4f6;
+            --text-gray: #9ca3af;
+            --accent: #60a5fa; /* Blue accent */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(17, 24, 39, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #374151;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .discord-btn {
+            background-color: #5865F2;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .discord-btn:hover { background-color: #4752c4; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1607988795691-3d0147b43231?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .ip-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ip-box:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .ip-text {
+            font-family: monospace;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .copy-hint {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .section-title span { color: var(--primary-color); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- ABOUT & RULES --- */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text { flex: 1; }
+        .about-image { 
+            flex: 1; 
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .rules-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rules-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #000;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            border-top: 1px solid #333;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Hide nav links on mobile for simplicity */
+            .hero h1 { font-size: 2.5rem; }
+            .about-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">TYC SMP</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#rules">Rules</a></li>
+        </ul>
+        <a href="https://discord.gg/yourinvite" class="discord-btn" target="_blank">Join Discord</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Welcome to <span style="color:var(--primary-color)">TYC SMP</span></h1>
+        <p>A community-driven Survival Multiplayer server focused on economy, land claiming, and friendly gameplay.</p>
+        
+        <!-- IP COPY BUTTON -->
+        <div class="ip-box" onclick="copyIP()">
+            <span class="ip-text" id="server-ip">play.tycsmp.com</span>
+            <span class="copy-hint" id="copy-status">Click to Copy</span>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section" id="features">
+        <h2 class="section-title">Why Play <span>TYC?</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Land Claiming</h3>
+                <p>Protect your builds with our easy-to-use golden shovel claim system. Your base is safe here.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Player Economy</h3>
+                <p>Buy, sell, and trade with other players. Set up your own shops and become the richest on the server.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚔️</div>
+                <h3>PvP & Events</h3>
+                <p>Participate in weekly community events, KOTH battles, and friendly PvP tournaments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Placeholder image for Minecraft landscape -->
+                <img src="https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Minecraft Landscape">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left;">About <span>Us</span></h2>
+                <p style="margin-bottom: 1rem;">
+                    TYC SMP was built by players, for players. We wanted to create a space where the community comes first. Whether you are a redstone engineer, a master builder, or just looking to chill with friends, there is a place for you here.
+                </p>
+                <p>
+                    <strong>Server Version:</strong> 1.20.4<br>
+                    <strong>Uptime:</strong> 99.9%<br>
+                    <strong>Est:</strong> 2024
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RULES SECTION -->
+    <section class="section" id="rules" style="background-color: #161e2e;">
+        <h2 class="section-title">Server <span>Rules</span></h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <ul class="rules-list">
+                <li><strong>No Griefing:</strong> Do not destroy or steal from other players' claims.</li>
+                <li><strong>Be Respectful:</strong> No hate speech, racism, or harassment in chat.</li>
+                <li><strong>No Hacking:</strong> Use of X-ray, Kill Aura, or Fly hacks is strictly prohibited.</li>
+                <li><strong>No Spam:</strong> Keep the chat clean and readable.</li>
+                <li><strong>Have Fun!</strong> This is a game, let's enjoy it together.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 TYC SMP. Not affiliated with Mojang Studios.</p>
+        <div style="margin-top: 10px;">
+            <a href="#" style="margin: 0 10px;">Twitter</a>
+            <a href="#" style="margin: 0 10px;">Instagram</a>
+            <a href="#" style="margin: 0 10px;">Discord</a>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR COPY IP -->
+    <script>
+        function copyIP() {
+            // Get the text field
+            var ipText = document.getElementById("server-ip").innerText;
+            
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(ipText).then(function() {
+                // Change the hint text to show success
+                var status = document.getElementById("copy-status");
+                status.innerText = "COPIED!";
+                status.style.color = "#4ade80";
+                
+                // Reset text after 2 seconds
+                setTimeout(function() {
+                    status.innerText = "Click to Copy";
+                    status.style.color = "#9ca3af";
+                }, 2000);
+            }, function(err) {
+                console.error('Async: Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
