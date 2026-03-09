@@ -1,0 +1,9 @@
+{
+  "name": "tyc-smp-gallery",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "busboy": "^1.6.0"
+  }
+}
