@@ -11,14 +11,15 @@
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
         
         /* Nav - MATCHES index.html EXACTLY */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; position: sticky; top: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #222; }
-        .logo { font-weight: 700; font-size: 1.3rem; letter-spacing: 2px; }
-        .logo span { color: var(--accent); }
-        .nav-links { display:flex; gap:1.5rem; align-items:center; }
-        .nav-links a { color:var(--text-dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-        .discord-btn { background: #5865F2; color: white; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
-        .discord-btn:hover { background: #4752c4; }
+        /* Nav - MUST MATCH index.html */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; position: sticky; top: 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #222; }
+.logo { font-weight: 700; font-size: 1.3rem; letter-spacing: 2px; }
+.logo span { color: var(--accent); }
+.nav-links { display:flex; gap:1.5rem; align-items:center; }
+.nav-links a { color:var(--text-dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.discord-btn { background: #5865F2; color: white; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: 0.2s; }
+.discord-btn:hover { background: #4752c4; }
 
         /* ... rest of your CSS unchanged ... */
         /* === HERO-STYLE GALLERY HEADER (MATCHES HOME PAGE) === */
@@ -117,11 +118,11 @@
     </style>
 </head>
 <body>
-    <nav>
+   <nav>
     <div class="logo">TYC<span>SMP</span></div>
     <div class="nav-links">
         <a href="/" style="color:var(--text-dim);">Home</a>
-        <a href="/gallery" class="active" style="color:var(--accent);">Gallery</a>
+        <a href="/gallery" style="color:var(--accent);">Gallery</a>
         <a href="https://discord.gg/JCptNSa4fv" target="_blank" class="discord-btn">Discord</a>
     </div>
 </nav>
