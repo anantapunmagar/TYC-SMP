@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/gallery", "destination": "/gallery.html" }
+  ],
+  "github": { "silent": true }
+}
